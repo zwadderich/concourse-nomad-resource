@@ -67,7 +67,7 @@ func main() {
 	_, err = outFile.Write(buf.Bytes())
 	common.Check(err, "Error writing output file")
 	command := "run"
-	if config.Params.DryRun == true {
+	if config.Params.DryRun {
 		command = "plan"
 	}
 	cmd := exec.Command(
