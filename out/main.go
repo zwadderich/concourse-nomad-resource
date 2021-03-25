@@ -17,7 +17,7 @@ import (
 
 type Params struct {
 	JobPath  string            `json:"job_path"`
-	DryRun   string            `json:"dry_run"`
+	DryRun   bool              `json:"dry_run"`
 	Vars     map[string]string `json:"vars"`
 	VarFiles map[string]string `json:"var_files"`
 }
