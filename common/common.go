@@ -7,7 +7,7 @@ import (
 	"os"
 	"os/exec"
 
-	resource "github.com/cioplenu/concourse-nomad-resource"
+	resource "github.com/zwadderich/concourse-nomad-resource"
 )
 
 func Check(err error, msg string) {

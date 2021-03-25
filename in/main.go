@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"os"
 
-	resource "github.com/cioplenu/concourse-nomad-resource"
-	"github.com/cioplenu/concourse-nomad-resource/common"
+	resource "github.com/zwadderich/concourse-nomad-resource"
+	"github.com/zwadderich/concourse-nomad-resource/common"
 )
 
 type Request struct {

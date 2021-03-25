@@ -1,3 +1,3 @@
-module github.com/cioplenu/concourse-nomad-resource
+module github.com/zwadderich/concourse-nomad-resource
 
 go 1.14
