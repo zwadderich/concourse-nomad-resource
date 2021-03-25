@@ -17,6 +17,7 @@ import (
 
 type Params struct {
 	JobPath  string            `json:"job_path"`
+	DryRun   string            `json:"dry_run"`
 	Vars     map[string]string `json:"vars"`
 	VarFiles map[string]string `json:"var_files"`
 }
@@ -65,11 +66,14 @@ func main() {
 	defer outFile.Close()
 	_, err = outFile.Write(buf.Bytes())
 	common.Check(err, "Error writing output file")
-
+	command := "run"
+	if config.Params.DryRun == true {
+		command = "plan"
+	}
 	cmd := exec.Command(
 		"nomad",
 		"job",
-		"run",
+		command,
 		"-address="+config.Source.URL,
 		"-token="+config.Source.Token,
 		templPath,
