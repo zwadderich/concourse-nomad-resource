@@ -4,6 +4,7 @@ type Source struct {
 	URL   string `json:"url"`
 	Name  string `json:"name"`
 	Token string `json:"token"`
+	Namespace string `json:"namespace"`
 }
 
 type JobVersion struct {

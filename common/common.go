@@ -25,6 +25,7 @@ func GetHistory(source resource.Source) resource.History {
 		"-json",
 		"-address="+source.URL,
 		"-token="+source.Token,
+                "-namespace="+source.Namespace,
 		source.Name,
 	)
 	var histResp bytes.Buffer
