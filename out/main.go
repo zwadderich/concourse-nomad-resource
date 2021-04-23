@@ -92,6 +92,7 @@ func main() {
 		}
 	}
 
+        fmt.Fprint(os.Stdout, out.String())
 	fmt.Fprint(os.Stderr, out.String())
 
 	history := common.GetHistory(config.Source)
