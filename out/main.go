@@ -83,9 +83,13 @@ func main() {
 	cmd.Stderr = &out
 	err = cmd.Run()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error executing nomad: %s\n", err)
-		fmt.Fprint(os.Stderr, out.String())
-		os.Exit(1)
+		if exitError, ok := err.(*exec.ExitError); ok {
+			if exitError.ExitCode() != 1 {
+				fmt.Fprintf(os.Stderr, "Error executing nomad: %s\n", err)
+				fmt.Fprint(os.Stderr, out.String())
+				os.Exit(1)
+			}
+		}
 	}
 
 	fmt.Fprint(os.Stderr, out.String())
