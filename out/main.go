@@ -85,7 +85,7 @@ func main() {
 	if err != nil {
 		if exitError, ok := err.(*exec.ExitError); ok {
                         fmt.Printf("%s",exitError.ExitCode())
-			if exitError.ExitCode() != 1 {
+			if exitError.ExitCode() == 255 {
 				fmt.Fprintf(os.Stderr, "Error executing nomad: %s\n", err)
 				fmt.Fprint(os.Stderr, out.String())
 				os.Exit(1)
